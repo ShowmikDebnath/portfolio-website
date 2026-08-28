@@ -4,6 +4,7 @@
 :root {
   --bg-color: #0d1117;
   --card-bg: #161b22;
+  --section-alt-bg: #10151c;
   --text-color: #e6e6e6;
   --accent-color: #2e9ef7;
   --accent-secondary: #a855f7;
@@ -21,6 +22,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -29,6 +32,7 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 28px 28px;
 }
@@ -229,8 +233,11 @@ section {
    Hero (index.html)
    ========================================================================== */
 .hero {
-  /* position: relative; */
+  position: relative;
   min-height: 100vh;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -270,8 +277,8 @@ section {
   50% { transform: translate(20px, -20px); }
 }
 
-.hero > * {
-  /* position: relative; */
+.hero-content {
+  position: relative;
   z-index: 1;
 }
 
@@ -336,10 +343,41 @@ section {
    Page Header (about / projects / contact top banner)
    ========================================================================== */
 .page-header {
+  position: relative;
   padding: calc(var(--nav-height) + 4rem) 1.5rem 3rem;
   text-align: center;
   max-width: 700px;
   margin: 0 auto;
+  overflow: visible;
+}
+
+.page-header-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.18;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page-header-glow.one {
+  background: var(--accent-color);
+  top: 0;
+  left: -40px;
+}
+
+.page-header-glow.two {
+  background: var(--accent-secondary);
+  top: 20px;
+  right: -40px;
+}
+
+.page-header h1,
+.page-header p {
+  position: relative;
+  z-index: 1;
 }
 
 .page-header h1 {
@@ -359,6 +397,10 @@ section {
    Home page sections
    ========================================================================== */
 .about-teaser {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--section-alt-bg);
   text-align: center;
 }
 
@@ -452,11 +494,19 @@ section {
   margin-top: 1rem;
 }
 
+.featured-projects {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--section-alt-bg);
+}
+
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
 }
 
 .cta-band {
@@ -541,6 +591,13 @@ section {
 /* ==========================================================================
    About page — narrative, skills, timeline
    ========================================================================== */
+#skills {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: var(--section-alt-bg);
+}
+
 .about-narrative {
   max-width: 720px;
   margin: 0 auto 4rem;
@@ -597,6 +654,8 @@ section {
 .skills-groups {
   display: grid;
   gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
@@ -614,64 +673,7 @@ section {
 }
 
 /* Timeline */
-/* Timeline */
-
 .timeline {
-  position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-  padding-left: 2rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: -4rem;
-  bottom: 6rem;
-  width: 2px;
-  background: var(--border-color);
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 2.5rem;
-}
-
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -2rem;
-  top: 4px;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent-color);
-  box-shadow: 0 0 0 4px rgba(46, 158, 247, 0.15);
-}
-
-.timeline-item .timeline-date {
-  color: var(--accent-color);
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.timeline-item h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.3rem;
-}
-
-.timeline-item p {
-  color: var(--muted-color);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-/* .timeline {
   position: relative;
   max-width: 700px;
   margin: 0 auto;
@@ -720,7 +722,7 @@ section {
 .timeline-item p {
   color: var(--muted-color);
   font-size: 0.92rem;
-} */
+}
 
 /* ==========================================================================
    Projects page — filter bar + grid
@@ -931,6 +933,48 @@ footer .copyright {
 .back-to-top:hover,
 .back-to-top:focus-visible {
   transform: translateY(-4px);
+}
+
+/* ==========================================================================
+   Mobile overflow fixes
+   ========================================================================== */
+@media (max-width: 600px) {
+  section {
+    padding: 4rem 1.25rem;
+  }
+
+  /* Force single-column below the point where minmax() column widths
+     no longer fit the available space, which was causing horizontal
+     scroll on narrow phones */
+  .featured-grid,
+  .projects-grid,
+  .skills-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-glow {
+    width: 260px;
+    height: 260px;
+  }
+
+  .about-teaser-image .image-glow {
+    width: 200px;
+    height: 200px;
+  }
+
+  .back-to-top {
+    right: 1.25rem;
+    bottom: 1.25rem;
+  }
+}
+
+/* Belt-and-suspenders: prevent any flex/grid child from forcing overflow
+   via its default min-width:auto / min-content sizing */
+.card,
+.skill-group,
+.timeline-item,
+.publication-card {
+  min-width: 0;
 }
 
 /* ==========================================================================
