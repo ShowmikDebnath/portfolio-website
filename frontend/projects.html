@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Showmik Debnath</title>
+  <meta name="description" content="Backend, AI/ML, and Flutter mobile projects built by Showmik Debnath." />
+  <meta property="og:title" content="Projects — Showmik Debnath" />
+  <meta property="og:description" content="Backend, AI/ML, and Flutter mobile projects." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/icons/favicon.ico" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo"><img src="assets/images/signature.png" alt="Showmik Debnath signature" style="height:66px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <header class="page-header">
+    <h1>Projects</h1>
+    <p>Ideas become projects, projects become experiments, and experiments become something worth building.</p>
+  </header>
+
+  <section>
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="backend">Backend</button>
+      <button class="filter-btn" data-filter="ai-ml">AI / ML</button>
+      <button class="filter-btn" data-filter="mobile">Mobile</button>
+    </div>
+
+    <div class="projects-grid">
+      <div class="card" data-category="ai-ml" data-aos="fade-up">
+        <h3>MoodSnap</h3>
+        <p class="card-desc">An AI based depression prediction system.</p>
+        <div class="tag-row">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+        </div>
+        <div class="card-links">
+          <a href="https://depressionprediction.pythonanywhere.com/" class="btn btn-secondary" target="_blank" rel="noopener">Try It</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="ai-ml" data-aos="fade-up" data-aos-delay="100">
+        <h3>Grammar Guru</h3>
+        <p class="card-desc">An AI-based Full-stack grammar checking web app.</p>
+        <div class="tag-row">
+          <span class="tag">FastAPI</span>
+          <span class="tag">gpt-oss-120b</span>
+          <span class="tag">HTML, CSS,JS</span>
+        </div>
+        <div class="card-links">
+          <a href="https://grammar-guru-sd.netlify.app/" class="btn btn-secondary" target="_blank" rel="noopener">Try It</a>
+          <a href="https://github.com/ShowmikDebnath/Grammar-Guru" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="mobile" data-aos="fade-up" data-aos-delay="200">
+        <h3>CodersCombo</h3>
+        <p class="card-desc">Social platform for coders to share DSA blogs.</p>
+        <div class="tag-row">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Firebase</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/CodersCombo-Optimistic" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://drive.google.com/file/d/1VuBDnz4taHCMDHtoi5x_1lxaRIxnTZBv/view?usp=sharing" class="btn btn-secondary" target="_blank" rel="noopener">View Prototype</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="backend" data-aos="fade-up">
+        <h3>Bazar API</h3>
+        <p class="card-desc">E-commerce backend API with product, order, and auth management.</p>
+        <div class="tag-row">
+          <span class="tag">Python 3.11</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/Bazar-API" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="ai-ml" data-aos="fade-up" data-aos-delay="50">
+        <h3>AI Playground</h3>
+        <p class="card-desc">7 hands-on experiments in LLM apps — RAG, chains, and agents.</p>
+        <div class="tag-row">
+          <span class="tag">Groq</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">ChromaDB</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/ai-playground-sd" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      
+
+      <div class="card" data-category="mobile" data-aos="fade-up" data-aos-delay="150">
+        <h3>TiffinsClub</h3>
+        <p class="card-desc">Food ordering app for a restaurant, supporting both delivery and pickup.</p>
+        <div class="tag-row">
+          <span class="tag">Flutter</span>
+          <span class="tag">Dart</span>
+          <span class="tag">Firebase</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/TiffinsClub" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      
+
+      <div class="card" data-category="ai-ml" data-aos="fade-up" data-aos-delay="250">
+        <h3>Breast Cancer Classification</h3>
+        <p class="card-desc">ML model for tumor classification.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/Breast_Cancer_Classification_using_Machine_Learning" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="ai-ml" data-aos="fade-up" data-aos-delay="300">
+        <h3>Cardiovascular Disease Detection</h3>
+        <p class="card-desc">Predictive ML model for cardiovascular risk.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/Cardiovascular_Disease_Detection_ML" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card" data-category="ai-ml" data-aos="fade-up" data-aos-delay="350">
+        <h3>IPL Win Probability Predictor</h3>
+        <p class="card-desc">Live win-probability predictor for IPL matches.</p>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/ShowmikDebnath/IPL_Win_Probability_Predictor_ML_Project" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/showmikdebnath/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://twitter.com/DebnathShowmik" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa-solid fa-x"></i></a>
+      <a href="https://www.facebook.com/showmik.debnath/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://github.com/ShowmikDebnath" target="_blank" rel="noopener" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+    </div>
+    <p class="copyright">© 2026 Showmik Debnath.</p>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
