@@ -101,13 +101,13 @@ if (backToTopBtn) {
 }
 
 // ==========================================================================
-// Contact form — client-side validation only (no backend yet)
+// Contact form — validated, submits to Formspree
 // ==========================================================================
 const contactForm = document.querySelector('#contact-form');
 
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
-    e.preventDefault(); // TODO: remove once wired to Formspree/backend in Phase 2
+    e.preventDefault();
 
     let isValid = true;
     const fields = contactForm.querySelectorAll('[required]');
@@ -133,11 +133,29 @@ if (contactForm) {
     const statusEl = contactForm.querySelector('.form-status');
 
     if (isValid) {
-      if (statusEl) {
-        statusEl.textContent = 'Thanks! (Form submission will be connected soon — this is a preview.)';
-        statusEl.classList.add('visible');
-      }
-      contactForm.reset();
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then((response) => {
+          if (response.ok) {
+            if (statusEl) {
+              statusEl.textContent = 'Thanks! Your message has been sent.';
+              statusEl.classList.add('visible');
+            }
+            contactForm.reset();
+          } else if (statusEl) {
+            statusEl.textContent = 'Something went wrong. Please try again or email me directly.';
+            statusEl.classList.add('visible');
+          }
+        })
+        .catch(() => {
+          if (statusEl) {
+            statusEl.textContent = 'Something went wrong. Please try again or email me directly.';
+            statusEl.classList.add('visible');
+          }
+        });
     } else if (statusEl) {
       statusEl.textContent = 'Please fix the highlighted fields.';
       statusEl.classList.add('visible');
